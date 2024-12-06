@@ -355,6 +355,8 @@ declare module '@docusaurus/plugin-content-blog' {
     language?: string;
     /** Allow control over the construction of BlogFeedItems */
     createFeedItems?: CreateFeedItemsFn;
+    /** Allow control over the construction of BlogFeed */
+    updateFeed?: UpdateFeedFn;
     /** Limits the feed to the specified number of posts, false|null for all */
     limit?: number | false | null;
   };
@@ -368,6 +370,10 @@ declare module '@docusaurus/plugin-content-blog' {
   type CreateFeedItemsFn = (
     params: CreateFeedItemsParams,
   ) => Promise<BlogFeedItem[]>;
+
+  type UpdateFeedFn = (
+    params: BlogFeed,
+  ) => Promise<BlogFeed>;
 
   type CreateFeedItemsParams = DefaultCreateFeedItemsParams & {
     defaultCreateFeedItems: (

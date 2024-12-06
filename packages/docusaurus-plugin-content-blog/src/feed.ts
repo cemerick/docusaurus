@@ -79,6 +79,10 @@ async function generateBlogFeed({
 
   const createFeedItems =
     options.feedOptions.createFeedItems ?? defaultCreateFeedItems;
+  
+  if (options.feedOptions.updateFeed) {
+    options.feedOptions.updateFeed(feed);
+  }
 
   const feedItems = await createFeedItems({
     blogPosts: blogPostsForFeed,

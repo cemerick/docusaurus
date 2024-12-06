@@ -157,6 +157,7 @@ const FeedOptionsSchema = Joi.object({
       .default(DEFAULT_OPTIONS.feedOptions.copyright),
   }),
   language: Joi.string(),
+  updateFeed: Joi.function(),
   createFeedItems: Joi.function(),
   limit: Joi.alternatives()
     .try(Joi.number(), Joi.valid(null), Joi.valid(false))
